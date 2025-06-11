@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->foreignId('role_id')->nullable()->constrained('roles')->onDelete('set null');
+            $table->boolean('is_superadmin')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
