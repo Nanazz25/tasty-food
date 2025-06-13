@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
     <h2>Tambah Role Baru</h2>
 
-    <form action="{{ route('roles.store') }}" method="POST">
+    <form action="{{ route('roles.store') }}" method="POST" class="mt-11">
         @csrf
 
         <div class="mb-3">
@@ -13,6 +13,14 @@
         </div>
 
         <h5>Akses Fitur:</h5>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" name="akses_roles" id="roles">
+            <label for="roles" class="form-check-label">Akses Roles</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" name="akses_users" id="users">
+            <label for="users" class="form-check-label">Akses Users</label>
+        </div>
         <div class="form-check">
             <input type="checkbox" class="form-check-input" name="akses_galeri" id="galeri">
             <label for="galeri" class="form-check-label">Akses Galeri</label>

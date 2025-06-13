@@ -11,6 +11,8 @@ class Role extends Model
 
     protected $fillable = [
         'name',
+        'akses_roles',
+        'akses_users',
         'akses_galeri',
         'akses_berita',
         'akses_kontak',

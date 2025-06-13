@@ -11,25 +11,26 @@ class AdminUserSeeder extends Seeder
 {
     public function run(): void
     {
-        // 1. Buat role superadmin (akses penuh)
         $superadmin = Role::create([
             'name' => 'superadmin',
+            'akses_roles' => true,
+            'akses_users' => true,
             'akses_galeri' => true,
             'akses_berita' => true,
             'akses_kontak' => true,
             'akses_tentang' => true,
         ]);
 
-        // 2. Buat role admin (akses parsial)
         $admin = Role::create([
             'name' => 'admin',
+            'akses_roles' => false,
+            'akses_users' => false,
             'akses_galeri' => true,
             'akses_berita' => true,
             'akses_kontak' => false,
             'akses_tentang' => false,
         ]);
 
-        // 3. Buat user superadmin
         User::create([
             'name' => 'Super Admin',
             'email' => 'superadmin@mail.com',
@@ -38,7 +39,6 @@ class AdminUserSeeder extends Seeder
             'is_superadmin' => true,
         ]);
 
-        // 4. Buat user admin biasa
         User::create([
             'name' => 'Admin Biasa',
             'email' => 'admin@mail.com',

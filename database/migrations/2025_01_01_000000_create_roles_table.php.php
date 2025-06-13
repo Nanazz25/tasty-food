@@ -13,6 +13,8 @@ return new class extends Migration {
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->boolean('akses_roles')->default(false);
+            $table->boolean('akses_users')->default(false);
             $table->boolean('akses_galeri')->default(false);
             $table->boolean('akses_berita')->default(false);
             $table->boolean('akses_kontak')->default(false);

@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
     <h2 class="mb-4">Tambah User Baru</h2>
 
-    <form action="{{ route('users.store') }}" method="POST">
+    <form action="{{ route('users.store') }}" method="POST" class="mt-11">
         @csrf
 
         <div class="mb-3">
