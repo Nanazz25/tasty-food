@@ -6,6 +6,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\TentangController;
+use App\Http\Controllers\KontakController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,6 +29,12 @@ Route::middleware(['auth'])->group(function () {
 
     // Galeri CRUD
     Route::resource('galeri', GaleriController::class)->except(['show']);
+
+    // Tentang CRUD
+    Route::resource('tentang', TentangController::class)->except(['show']);
+
+    // Kontak CRUD
+    Route::resource('kontak', KontakController::class)->except('show');
 
     // Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

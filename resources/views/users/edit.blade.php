@@ -1,37 +1,52 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
-    <h2>Tambah User</h2>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-12 col-lg-12">
 
-    <form action="{{ route('users.update', $user) }}" method="POST" class="mt-11">
-        @csrf @method('PUT')
+            <div class="card shadow-sm border-0 mt-11">
 
-        <div class="mb-3">
-            <label>Nama</label>
-            <input type="text" name="name" value="{{ $user->name }}" class="form-control" required>
+                <div class="card-body">
+                    <form action="{{ route('users.update', $user) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nama</label>
+                            <input type="text" name="name" id="name" value="{{ $user->name }}" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" name="email" id="email" value="{{ $user->email }}" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password (Kosongkan jika tidak diubah)</label>
+                            <input type="password" name="password" id="password" class="form-control">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="role_id" class="form-label">Role</label>
+                            <select name="role_id" id="role_id" class="form-select" required>
+                                @foreach ($roles as $role)
+                                    <option value="{{ $role->id }}" {{ $user->role_id == $role->id ? 'selected' : '' }}>
+                                        {{ ucfirst($role->name) }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">Simpan Perubahan</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
         </div>
-
-        <div class="mb-3">
-            <label>Email</label>
-             <input type="email" name="email" value="{{ $user->email }}" class="form-control" required>
-        </div>
-
-        <div class="mb-3">
-            <label>Password</label>
-            <input type="password" name="password" class="form-control">
-        </div>
-
-        <div class="mb-3">
-            <label>Role</label>
-            <select name="role_id" class="form-control" required>
-                @foreach ($roles as $role)
-                    <option value="{{ $role->id }}">{{ $role->name }}</option>
-                @endforeach
-            </select>
-        </div>
-
-        <button type="submit" class="btn btn-success">Simpan</button>
-    </form>
+    </div>
 </div>
 @endsection

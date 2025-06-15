@@ -1,46 +1,76 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
-    <h2>Edit Role: {{ $role->name }}</h2>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <!-- Card Start -->
+            <div class="card shadow-sm mt-11">
+                <div class="card-body">
+                    <!-- Form Start -->
+                    <form action="{{ route('roles.update', $role->id) }}" method="POST">
+                        @csrf
+                        @method('PUT')
 
-    <form action="{{ route('roles.update', $role->id) }}" method="POST" class="mt-11">
-        @csrf
-        @method('PUT')
+                        {{-- Input Nama Role --}}
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nama Role</label>
+                            <input type="text" name="name" id="name" class="form-control"
+                                value="{{ old('name', $role->name) }}" required>
+                        </div>
 
-        <div class="mb-3">
-            <label>Nama Role</label>
-            <input type="text" name="name" class="form-control" value="{{ old('name', $role->name) }}" required>
-        </div>
+                        {{-- Akses Fitur --}}
+                        <div class="mb-3">
+                            <label class="form-label">Akses Fitur</label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" class="form-check-input" name="akses_roles" id="akses_roles"
+                                            {{ $role->akses_roles ? 'checked' : '' }}>
+                                        <label for="akses_roles" class="form-check-label">Akses Roles</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" class="form-check-input" name="akses_users" id="akses_users"
+                                            {{ $role->akses_users ? 'checked' : '' }}>
+                                        <label for="akses_users" class="form-check-label">Akses Users</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" class="form-check-input" name="akses_galeri" id="akses_galeri"
+                                            {{ $role->akses_galeri ? 'checked' : '' }}>
+                                        <label for="akses_galeri" class="form-check-label">Akses Galeri</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" class="form-check-input" name="akses_berita" id="akses_berita"
+                                            {{ $role->akses_berita ? 'checked' : '' }}>
+                                        <label for="akses_berita" class="form-check-label">Akses Berita</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" class="form-check-input" name="akses_kontak" id="akses_kontak"
+                                            {{ $role->akses_kontak ? 'checked' : '' }}>
+                                        <label for="akses_kontak" class="form-check-label">Akses Kontak</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" class="form-check-input" name="akses_tentang" id="akses_tentang"
+                                            {{ $role->akses_tentang ? 'checked' : '' }}>
+                                        <label for="akses_tentang" class="form-check-label">Akses Tentang</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-        <h5>Akses Fitur:</h5>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" name="akses_roles" id="roles" {{ $role->akses_roles ? 'checked' : '' }}>
-            <label for="roles" class="form-check-label">Akses Roles</label>
+                        {{-- Tombol --}}
+                        <div class="d-flex justify-content-between mt-4">
+                            <a href="{{ route('roles.index') }}" class="btn btn-secondary">Kembali</a>
+                            <button type="submit" class="btn btn-success">Update Role</button>
+                        </div>
+                    </form>
+                    <!-- Form End -->
+                </div>
+            </div>
+            <!-- Card End -->
         </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" name="akses_users" id="users" {{ $role->akses_users ? 'checked' : '' }}>
-            <label for="users" class="form-check-label">Akses Users</label>
-        </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" name="akses_galeri" id="galeri" {{ $role->akses_galeri ? 'checked' : '' }}>
-            <label for="galeri" class="form-check-label">Akses Galeri</label>
-        </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" name="akses_berita" id="berita" {{ $role->akses_berita ? 'checked' : '' }}>
-            <label for="berita" class="form-check-label">Akses Berita</label>
-        </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" name="akses_kontak" id="kontak" {{ $role->akses_kontak ? 'checked' : '' }}>
-            <label for="kontak" class="form-check-label">Akses Kontak</label>
-        </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" name="akses_tentang" id="tentang" {{ $role->akses_tentang ? 'checked' : '' }}>
-            <label for="tentang" class="form-check-label">Akses Tentang</label>
-        </div>
-
-        <button type="submit" class="btn btn-primary mt-3">Update</button>
-        <a href="{{ route('roles.index') }}" class="btn btn-secondary mt-3">Kembali</a>
-    </form>
+    </div>
 </div>
 @endsection

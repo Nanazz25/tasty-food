@@ -52,6 +52,23 @@
                         </div>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link justify-content-between" href="{{ route('tentang.index') }}">
+                        <div class="d-flex align-items-center gap-3">
+                            <span><i class="ti ti-info-circle"></i></span>
+                            <span class="hide-menu">Tentang</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link justify-content-between" href="{{ route('kontak.index') }}">
+                        <div class="d-flex align-items-center gap-3">
+                            <span><i class="ti ti-message-dots"></i></span>
+                            <span class="hide-menu">Kontak</span>
+                        </div>
+                    </a>
+                </li>
+
             </ul>
         </nav>
     </div>
