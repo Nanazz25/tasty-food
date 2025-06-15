@@ -9,6 +9,10 @@ class TentangController extends Controller
 {
     public function index()
     {
+        if (!allowedRoles('akses_tentang')) {
+            return redirect('/')->with('error', 'Kamu tidak punya akses ke Berita!');
+        }
+
         $tentang = Tentang::latest()->get();
         return view('tentang.index', compact('tentang'));
     }

@@ -11,6 +11,10 @@ class UserController extends Controller
 {
     public function index()
     {
+        if (!allowedRoles('akses_users')) {
+            return redirect('/')->with('error', 'Kamu tidak punya akses ke Berita!');
+        }
+
         $users = User::with('role')->get();
         return view('users.index', compact('users'));
     }

@@ -9,6 +9,10 @@ class RoleController extends Controller
 {
     public function index()
     {
+        if (!allowedRoles('akses_roles')) {
+            return redirect('/')->with('error', 'Kamu tidak punya akses ke Berita!');
+        }
+
         $roles = Role::all();
         return view('roles.index', compact('roles'));
     }

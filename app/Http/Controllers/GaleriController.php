@@ -9,6 +9,10 @@ class GaleriController extends Controller
 {
     public function index()
     {
+        if (!allowedRoles('akses_galeri')) {
+            return redirect('/')->with('error', 'Kamu tidak punya akses ke Berita!');
+        }
+
         $galeri = Galeri::latest()->get();
         return view('galeri.index', compact('galeri'));
     }

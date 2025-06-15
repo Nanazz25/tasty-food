@@ -9,6 +9,10 @@ class KontakController extends Controller
 {
     public function index()
     {
+        if (!allowedRoles('akses_kontak')) {
+            return redirect('/')->with('error', 'Kamu tidak punya akses ke Berita!');
+        }
+
         $kontak = Kontak::latest()->get();
         return view('kontak.index', compact('kontak'));
     }

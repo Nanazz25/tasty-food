@@ -8512,8 +8512,6 @@ textarea.form-control-lg {
     margin-top: 50px !important;
 }
 
-.mt-50 {}
-
 .mt-auto {
   margin-top: auto !important;
 }
@@ -15767,6 +15765,12 @@ textarea.form-control-lg {
 }
 .sidebar-nav .sidebar-list .sidebar-list-item {
   padding: 8px 0;
+}
+
+.sidebar-nav {
+    max-height: calc(100vh - 80px);
+    padding: 0 24px;
+    overflow-y: auto;
 }
 
 .collapse.in {

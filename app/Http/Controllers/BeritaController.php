@@ -9,6 +9,10 @@ class BeritaController extends Controller
 {
     public function index()
     {
+        if (!allowedRoles('akses_berita')) {
+            return redirect('/')->with('error', 'Kamu tidak punya akses ke Berita!');
+        }
+
         $berita = Berita::latest()->get();
         return view('berita.index', compact('berita'));
     }
