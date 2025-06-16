@@ -19,21 +19,42 @@
                         </div>
                         <div class="mb-3">
                             <label for="isi" class="form-label">Isi</label>
-                            <textarea name="isi" id="isi" rows="4" class="form-control" required>{{ old('isi', $tentang->isi) }}</textarea>
+                            <input id="isi" type="hidden" name="isi" value="{{ old('isi', $tentang->isi) }}">
+                            <trix-editor input="isi"></trix-editor>
+                            @error('isi')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
+
                         <div class="mb-3">
-                            <label class="form-label">Gambar Saat Ini</label><br>
-                            @if ($tentang->gambar)
-                                <img src="{{ asset($tentang->gambar) }}" width="150" class="mb-2" alt="gambar">
+                            <label class="form-label">Gambar Kiri Saat Ini</label><br>
+                            @if ($tentang->gambar_kiri)
+                                <img src="{{ asset($tentang->gambar_kiri) }}" width="150" class="mb-2"
+                                    alt="gambar kiri">
                             @else
-                                <p class="text-muted">Tidak ada gambar</p>
+                                <p class="text-muted">Tidak ada gambar kiri</p>
                             @endif
                         </div>
 
                         <div class="mb-3">
-                            <label for="gambar" class="form-label">Ganti Gambar (Opsional)</label>
-                            <input type="file" name="gambar" class="form-control">
+                            <label for="gambar_kiri" class="form-label">Ganti Gambar Kiri (Opsional)</label>
+                            <input type="file" name="gambar_kiri" class="form-control">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Gambar Kanan Saat Ini</label><br>
+                            @if ($tentang->gambar_kanan)
+                                <img src="{{ asset($tentang->gambar_kanan) }}" width="150" class="mb-2"
+                                    alt="gambar kanan">
+                            @else
+                                <p class="text-muted">Tidak ada gambar kanan</p>
+                            @endif
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="gambar_kanan" class="form-label">Ganti Gambar Kanan (Opsional)</label>
+                            <input type="file" name="gambar_kanan" class="form-control">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Update</button>

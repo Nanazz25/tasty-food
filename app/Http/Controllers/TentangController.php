@@ -10,7 +10,7 @@ class TentangController extends Controller
     public function index()
     {
         if (!allowedRoles('akses_tentang')) {
-            return redirect('/')->with('error', 'Kamu tidak punya akses ke Berita!');
+            return redirect('/')->with('error', 'Kamu tidak punya akses ke Tentang!');
         }
 
         $tentang = Tentang::latest()->get();
@@ -27,16 +27,24 @@ class TentangController extends Controller
         $request->validate([
             'judul' => 'required|string|max:255',
             'isi' => 'required',
-            'gambar' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'gambar_kiri' => 'nullable|image|mimes:jpg,jpeg,png|max:10048',
+            'gambar_kanan' => 'nullable|image|mimes:jpg,jpeg,png|max:10048',
         ]);
 
         $data = $request->only('judul', 'isi');
 
-        if ($request->hasFile('gambar')) {
-            $file = $request->file('gambar');
-            $filename = time() . '_' . $file->getClientOriginalName();
+        if ($request->hasFile('gambar_kiri')) {
+            $file = $request->file('gambar_kiri');
+            $filename = time() . '_kiri_' . $file->getClientOriginalName();
             $file->move(public_path('tentang_images'), $filename);
-            $data['gambar'] = 'tentang_images/' . $filename;
+            $data['gambar_kiri'] = 'tentang_images/' . $filename;
+        }
+
+        if ($request->hasFile('gambar_kanan')) {
+            $file = $request->file('gambar_kanan');
+            $filename = time() . '_kanan_' . $file->getClientOriginalName();
+            $file->move(public_path('tentang_images'), $filename);
+            $data['gambar_kanan'] = 'tentang_images/' . $filename;
         }
 
         Tentang::create($data);
@@ -54,20 +62,32 @@ class TentangController extends Controller
         $request->validate([
             'judul' => 'required|string|max:255',
             'isi' => 'required',
-            'gambar' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'gambar_kiri' => 'nullable|image|mimes:jpg,jpeg,png|max:10048',
+            'gambar_kanan' => 'nullable|image|mimes:jpg,jpeg,png|max:10048',
         ]);
 
         $data = $request->only('judul', 'isi');
 
-        if ($request->hasFile('gambar')) {
-            if ($tentang->gambar && file_exists(public_path($tentang->gambar))) {
-                unlink(public_path($tentang->gambar));
+        if ($request->hasFile('gambar_kiri')) {
+            if ($tentang->gambar_kiri && file_exists(public_path($tentang->gambar_kiri))) {
+                unlink(public_path($tentang->gambar_kiri));
             }
 
-            $file = $request->file('gambar');
-            $filename = time() . '_' . $file->getClientOriginalName();
+            $file = $request->file('gambar_kiri');
+            $filename = time() . '_kiri_' . $file->getClientOriginalName();
             $file->move(public_path('tentang_images'), $filename);
-            $data['gambar'] = 'tentang_images/' . $filename;
+            $data['gambar_kiri'] = 'tentang_images/' . $filename;
+        }
+
+        if ($request->hasFile('gambar_kanan')) {
+            if ($tentang->gambar_kanan && file_exists(public_path($tentang->gambar_kanan))) {
+                unlink(public_path($tentang->gambar_kanan));
+            }
+
+            $file = $request->file('gambar_kanan');
+            $filename = time() . '_kanan_' . $file->getClientOriginalName();
+            $file->move(public_path('tentang_images'), $filename);
+            $data['gambar_kanan'] = 'tentang_images/' . $filename;
         }
 
         $tentang->update($data);
@@ -77,8 +97,12 @@ class TentangController extends Controller
 
     public function destroy(Tentang $tentang)
     {
-        if ($tentang->gambar && file_exists(public_path($tentang->gambar))) {
-            unlink(public_path($tentang->gambar));
+        if ($tentang->gambar_kiri && file_exists(public_path($tentang->gambar_kiri))) {
+            unlink(public_path($tentang->gambar_kiri));
+        }
+
+        if ($tentang->gambar_kanan && file_exists(public_path($tentang->gambar_kanan))) {
+            unlink(public_path($tentang->gambar_kanan));
         }
 
         $tentang->delete();

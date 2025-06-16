@@ -14,6 +14,7 @@ class Tentang extends Model
     protected $fillable = [
         'judul',
         'isi',
-        'gambar',
+        'gambar_kiri',
+        'gambar_kanan',
     ];
 }

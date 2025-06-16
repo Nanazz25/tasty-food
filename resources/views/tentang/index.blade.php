@@ -29,8 +29,9 @@
                             <thead>
                                 <tr>
                                     <th scope="col" class="px-0 text-muted">Judul</th>
-                                    <th scope="col" class="px-0 text-muted">Isi</th>
-                                    <th scope="col" class="px-0 text-muted">Gambar</th>
+                                    <th scope="col" class="px-2 text-muted">Isi</th>
+                                    <th scope="col" class="px-0 text-muted">Gambar Kiri</th>
+                                    <th scope="col" class="px-2 text-muted">Gambar Kanan</th>
                                     <th scope="col" class="px-0 text-muted">Aksi</th>
                                 </tr>
                             </thead>
@@ -38,11 +39,18 @@
                                 @foreach ($tentang as $item)
                                     <tr>
                                         <td class="px-0">{{ $item->judul }}</td>
-                                        <td class="px-0">{{ Str::limit($item->isi, 100) }}</td>
+                                        <td class="px-0">{{ Str::limit(strip_tags($item->isi), 100) }}</td>
                                         <td class="px-0">
-                                            @if ($item->gambar)
-                                                <img src="/{{ $item->gambar }}"
-                                                    style="width: 200px; height: 150px; object-fit: contain; background-color: #f8f9fa;"
+                                            @if ($item->gambar_kiri)
+                                                <img src="/{{ $item->gambar_kiri }}"
+                                                    style="width: 150px; height: 100px; object-fit: contain;"
+                                                    class="rounded border">
+                                            @endif
+                                        </td>
+                                        <td class="px-0">
+                                            @if ($item->gambar_kanan)
+                                                <img src="/{{ $item->gambar_kanan }}"
+                                                    style="width: 150px; height: 100px; object-fit: contain;"
                                                     class="rounded border">
                                             @endif
                                         </td>
@@ -53,8 +61,7 @@
                                                 class="d-inline" onsubmit="return confirm('Hapus data ini?')">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger"
-                                                    onclick="return confirm('Hapus role ini?')">Hapus</button>
+                                                <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
                                             </form>
                                         </td>
                                     </tr>

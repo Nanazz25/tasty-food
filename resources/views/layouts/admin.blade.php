@@ -7,6 +7,7 @@
     <title>@yield('title', 'Admin Dashboard')</title>
     <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/logos/favicon.png') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css">
 </head>
 
 <body>
@@ -26,7 +27,8 @@
             <div class="body-wrapper-inner">
                 @yield('content')
                 <div class="py-6 px-6 text-center">
-                    <p class="mb-0 fs-4">Design and Developed by <a href="https://nanazz25.wordpress.com/2025/06/10/laporan-pkl-harian-cyberlabs/"
+                    <p class="mb-0 fs-4">Design and Developed by <a
+                            href="https://nanazz25.wordpress.com/2025/06/10/laporan-pkl-harian-cyberlabs/"
                             class="pe-1 text-primary text-decoration-underline">Nanazz.com</a> Distributed by <a
                             href="https://cyberlabs.co.id/" target="_blank">Cyberlabs</a></p>
                 </div>
@@ -34,6 +36,7 @@
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.js"></script>
     <script src="{{ asset('assets/libs/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/sidebarmenu.js') }}"></script>
