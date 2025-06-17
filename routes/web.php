@@ -43,6 +43,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
     // Kontak CRUD
     Route::resource('kontak', KontakController::class)->except('show');
+    Route::get('kontak/{kontak}', [KontakController::class, 'show'])->name('kontak.show');
 
     // Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

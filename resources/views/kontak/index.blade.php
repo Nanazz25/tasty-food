@@ -8,50 +8,49 @@
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
 
-        <div class="col-12 mt-11">
+        <div class="col-12 mt-4">
             <div class="card">
                 <div class="card-body">
-                    <div class="d-md-flex align-items-center">
+                    <div class="d-md-flex align-items-center mb-3">
                         <div>
-                            <h4 class="card-title">Data Kontak</h4>
-                            <p class="card-subtitle">Pesan dari pengunjung</p>
-                        </div>
-                        <div class="ms-auto mt-3 mt-md-0">
-                            <a href="{{ route('kontak.create') }}" class="btn btn-primary mb-3">+ Tambah Kontak</a>
+                            <h4 class="card-title">Pesan dari Pengunjung</h4>
+                            <p class="card-subtitle">Menampilkan pesan terbaru</p>
                         </div>
                     </div>
+
                     <div class="table-responsive mt-4">
                         <table class="table mb-0 text-nowrap varient-table align-middle fs-3">
                             <thead>
                                 <tr>
-                                    <th class="px-0 text-muted">Subject</th>
-                                    <th class="px-0 text-muted">Nama</th>
-                                    <th class="px-0 text-muted">Email</th>
-                                    <th class="px-0 text-muted">Pesan</th>
-                                    <th class="px-0 text-muted">Aksi</th>
+                                    <th scope="col" class="px-2 text-muted">Subject</th>
+                                    <th scope="col" class="px-2 text-muted">Nama</th>
+                                    <th scope="col" class="px-2 text-muted">Email</th>
+                                    <th scope="col" class="px-2 text-muted">Pesan</th>
+                                    <th scope="col" class="px-2 text-muted">Dikirim</th>
+                                    <th scope="col" class="px-2 text-muted">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($kontak as $item)
+                                @forelse ($kontak as $item)
                                     <tr>
-                                        <td class="px-0">{{ $item->subject }}</td>
-                                        <td class="px-0">{{ $item->nama }}</td>
-                                        <td class="px-0">{{ $item->email }}</td>
-                                        <td class="px-0">{{ Str::limit($item->pesan, 50) }}</td>
-                                        <td class="px-0">
-                                            <a href="{{ route('kontak.edit', $item) }}" class="btn btn-warning btn-sm">Edit</a>
+                                        <td class="px-2">{{ $item->subject }}</td>
+                                        <td class="px-2">{{ $item->nama }}</td>
+                                        <td class="px-2">{{ $item->email }}</td>
+                                        <td class="px-2">{{ Str::limit($item->pesan, 50) }}</td>
+                                        <td class="px-2">{{ $item->created_at->translatedFormat('d M Y, H:i') }}</td>
+                                        <td class="px-2">
+                                            <a href="{{ route('kontak.show', $item) }}" class="btn btn-info btn-sm">Lihat</a>
                                             <form action="{{ route('kontak.destroy', $item) }}" method="POST" style="display:inline-block">
                                                 @csrf @method('DELETE')
                                                 <button onclick="return confirm('Hapus data ini?')" class="btn btn-danger btn-sm">Hapus</button>
                                             </form>
                                         </td>
                                     </tr>
-                                @endforeach
-                                @if ($kontak->isEmpty())
+                                @empty
                                     <tr>
-                                        <td colspan="5" class="text-center text-muted">Belum ada data kontak.</td>
+                                        <td colspan="6" class="text-center text-muted">Belum ada data kontak.</td>
                                     </tr>
-                                @endif
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
