@@ -8,7 +8,7 @@
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
 
-        <div class="col-12 mt-4">
+        <div class="col-12 mt-11">
             <div class="card">
                 <div class="card-body">
                     <div class="d-md-flex align-items-center mb-3">

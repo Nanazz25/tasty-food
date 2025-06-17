@@ -42,4 +42,7 @@
             </ul>
         </div>
     </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Tasty Food. All rights reserved.</p>
+    </div>
 </footer>

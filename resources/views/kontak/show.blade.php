@@ -4,7 +4,7 @@
     <div class="container">
         <h2>Detail Pesan Kontak</h2>
 
-        <div class="card mt-4">
+        <div class="card mt-11">
             <div class="card-body">
                 <h4 class="card-title mb-4">{{ $kontak->subject }}</h4>
 
