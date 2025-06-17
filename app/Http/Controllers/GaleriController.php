@@ -26,7 +26,7 @@ class GaleriController extends Controller
     {
         $request->validate([
             'nama_gambar' => 'required|string|max:255',
-            'gambar' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            'gambar' => 'required|image|mimes:jpg,jpeg,png|max:10048',
         ]);
 
         $file = $request->file('gambar');
@@ -55,7 +55,7 @@ class GaleriController extends Controller
     {
         $request->validate([
             'nama_gambar' => 'required|string|max:255',
-            'gambar' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'gambar' => 'nullable|image|mimes:jpg,jpeg,png|max:10048',
         ]);
 
         if ($request->hasFile('gambar')) {

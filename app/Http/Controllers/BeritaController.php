@@ -27,7 +27,7 @@ class BeritaController extends Controller
         $request->validate([
             'judul' => 'required|string|max:255',
             'isi' => 'required',
-            'gambar' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
+            'gambar' => 'nullable|image|mimes:jpg,png,jpeg|max:10048',
         ]);
 
         $data = $request->only('judul', 'isi');
@@ -60,7 +60,7 @@ class BeritaController extends Controller
         $request->validate([
             'judul' => 'required|string|max:255',
             'isi' => 'required',
-            'gambar' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
+            'gambar' => 'nullable|image|mimes:jpg,png,jpeg|max:10048',
         ]);
 
         $data = $request->only('judul', 'isi');

@@ -8,13 +8,21 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\TentangController;
 use App\Http\Controllers\KontakController;
+use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\TentangController as FrontendTentang;
+use App\Http\Controllers\Frontend\BeritaController as FrontendBerita;
+use App\Http\Controllers\Frontend\GaleriController as FrontendGaleri;
+use App\Http\Controllers\Frontend\KontakController as FrontendKontak;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('frontend.home');
+Route::get('/tentang', [FrontendTentang::class, 'index'])->name('frontend.tentang');
+Route::get('/berita', [FrontendBerita::class, 'index'])->name('frontend.berita');
+Route::get('/berita/{id}', [FrontendBerita::class, 'show'])->name('berita.show');
+Route::get('/galeri', [FrontendGaleri::class, 'index'])->name('frontend.galeri');
+Route::get('/kontak', [FrontendKontak::class, 'index'])->name('frontend.kontak');
 
 // Authenticated users
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->middleware(['verified'])->name('dashboard');

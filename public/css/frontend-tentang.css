@@ -1,0 +1,130 @@
+/* === TENTANG === */
+.container-tasty,
+.container-misi,
+.container-visi {
+    padding: 20px;
+    background-color: #fff;
+    justify-content: center;
+}
+
+.judul-section {
+    font-size: 26px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.isi {
+    font-size: 13px;
+    color: #000;
+    text-align: justify;
+    line-height: 1.6;
+}
+
+/* === TASTY FOOD SECTION === */
+.container-tasty {
+    height: 70vh;
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 50px;
+    background-color: #f0f0f0;
+}
+
+.container-tasty .text {
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    padding-top: 5%;
+}
+
+.container-tasty .images-horizontal {
+    display: flex;
+    gap: 10px;
+    padding-top: 5%;
+}
+
+.container-tasty .images-horizontal img {
+    width: 240px;
+    height: 370px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* === VISI SECTION === */
+.container-visi {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    height: 60vh;
+    padding-top: 5%;
+}
+
+.container-visi .images-horizontal {
+    display: flex;
+    gap: 20px;
+}
+
+.container-visi .images-horizontal img {
+    width: 270px;
+    height: 270px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.container-visi .text {
+    flex: 1;
+    max-width: 45%;
+}
+
+/* === MISI SECTION === */
+.container-misi {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    height: 60vh;
+}
+
+.container-misi .text {
+    flex: 1;
+    max-width: 40%;
+}
+
+.container-misi .image-wide img {
+    width: 650px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .container-tasty,
+    .container-visi,
+    .container-misi {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container-tasty .images-horizontal,
+    .container-visi .images-horizontal {
+        flex-direction: column;
+    }
+
+    .container-tasty .images-horizontal img,
+    .container-visi .images-horizontal img,
+    .container-misi .image-wide img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+    }
+
+    .container-tasty .text,
+    .container-visi .text,
+    .container-misi .text {
+        max-width: 100%;
+    }
+}

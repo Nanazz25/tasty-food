@@ -39,7 +39,7 @@
                                 @foreach ($tentang as $item)
                                     <tr>
                                         <td class="px-0">{{ $item->judul }}</td>
-                                        <td class="px-0">{{ Str::limit(strip_tags($item->isi), 100) }}</td>
+                                        <td class="px-2">{{ Str::limit(strip_tags($item->isi), 100) }}</td>
                                         <td class="px-0">
                                             @if ($item->gambar_kiri)
                                                 <img src="/{{ $item->gambar_kiri }}"

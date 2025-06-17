@@ -1,0 +1,173 @@
+/* frontend-galeri.css */
+
+/* === HERO SECTION === */
+.hero-galeri {
+    position: relative;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    padding: 40px 60px;
+    color: white;
+}
+
+.hero-galeri h1 {
+    font-size: 48px;
+    font-weight: 700;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* === CAROUSEL SECTION === */
+.carousel-wrapper {
+    position: relative;
+    padding: 40px 0;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-slide {
+    width: 100%;
+    max-width: 1200px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.324);
+    color: #333;
+    border: none;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background: #fff;
+    color: #000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-btn.left {
+    left: 8.8%;
+}
+
+.carousel-btn.right {
+    right: 8.8%;
+}
+
+.carousel-slide img.slide-animate {
+    animation: slideFade 0.4s ease-in-out;
+}
+
+@keyframes slideFade {
+    from {
+        transform: translateX(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* === GALERI GRID === */
+.grid-galeri {
+    padding: 60px 20px;
+    background: #fafafa;
+}
+
+.galeri-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.galeri-item {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeri-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.galeri-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.load-more-wrapper {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.load-more-btn {
+    background-color: #000;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.load-more-btn:hover {
+    background-color: #222;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .hero-galeri {
+        padding: 30px;
+    }
+
+    .hero-galeri h1 {
+        font-size: 36px;
+    }
+
+    .carousel-prev {
+        left: 20px;
+    }
+
+    .carousel-next {
+        right: 20px;
+    }
+
+    .carousel-slide img {
+        height: 300px;
+    }
+
+    .galeri-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .galeri-item img {
+        height: 200px;
+    }
+}
