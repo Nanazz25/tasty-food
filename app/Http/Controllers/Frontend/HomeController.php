@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function index()
     {
         $tentang = Tentang::latest()->first();
-        $berita = Berita::latest()->take(3)->get();
+        $berita = Berita::latest()->take(5)->get();
         $galeri = Galeri::latest()->take(6)->get();
 
         return view('frontend.home', compact('tentang', 'berita', 'galeri'));
