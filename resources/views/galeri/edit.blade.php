@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('title', 'Edit Galeri')
+
 @section('content')
     <div class="container">
         <h2 class="mb-4">Edit Gambar Galeri</h2>

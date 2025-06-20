@@ -116,7 +116,7 @@
     </section>
 
     <section class="galeri-home">
-        <h2 class="section-title">GALERI</h2>
+        <h2 class="section-title">GALERI KAMI</h2>
         <div class="galeri-grid">
             @foreach ($galeri as $item)
                 <div class="galeri-item">

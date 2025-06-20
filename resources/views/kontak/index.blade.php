@@ -1,11 +1,23 @@
 @extends('layouts.admin')
 
+@section('title', 'Admin Kontak')
+
 @section('content')
     <div class="container">
         <h2>Data Kontak</h2>
 
+        {{-- Notifikasi sukses --}}
         @if (session('success'))
-            <div class="alert alert-success">{{ session('success') }}</div>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Sukses!',
+                    text: '{{ session('success') }}',
+                    timer: 2000,
+                    showConfirmButton: false
+                });
+            </script>
         @endif
 
         <div class="col-12 mt-11">
@@ -22,12 +34,12 @@
                         <table class="table mb-0 text-nowrap varient-table align-middle fs-3">
                             <thead>
                                 <tr>
-                                    <th scope="col" class="px-2 text-muted">Subject</th>
-                                    <th scope="col" class="px-2 text-muted">Nama</th>
-                                    <th scope="col" class="px-2 text-muted">Email</th>
-                                    <th scope="col" class="px-2 text-muted">Pesan</th>
-                                    <th scope="col" class="px-2 text-muted">Dikirim</th>
-                                    <th scope="col" class="px-2 text-muted">Aksi</th>
+                                    <th class="px-2 text-muted">Subject</th>
+                                    <th class="px-2 text-muted">Nama</th>
+                                    <th class="px-2 text-muted">Email</th>
+                                    <th class="px-2 text-muted">Pesan</th>
+                                    <th class="px-2 text-muted">Dikirim</th>
+                                    <th class="px-2 text-muted">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -40,9 +52,15 @@
                                         <td class="px-2">{{ $item->created_at->translatedFormat('d M Y, H:i') }}</td>
                                         <td class="px-2">
                                             <a href="{{ route('kontak.show', $item) }}" class="btn btn-info btn-sm">Lihat</a>
-                                            <form action="{{ route('kontak.destroy', $item) }}" method="POST" style="display:inline-block">
-                                                @csrf @method('DELETE')
-                                                <button onclick="return confirm('Hapus data ini?')" class="btn btn-danger btn-sm">Hapus</button>
+
+                                            <button type="button" class="btn btn-danger btn-sm"
+                                                onclick="hapusKontak('{{ $item->id }}')">Hapus</button>
+
+                                            <form id="form-hapus-{{ $item->id }}"
+                                                  action="{{ route('kontak.destroy', $item) }}"
+                                                  method="POST" style="display: none;">
+                                                @csrf
+                                                @method('DELETE')
                                             </form>
                                         </td>
                                     </tr>
@@ -54,8 +72,30 @@
                             </tbody>
                         </table>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
+
+    {{-- SweetAlert konfirmasi hapus --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function hapusKontak(id) {
+            Swal.fire({
+                title: 'Yakin ingin hapus?',
+                text: "Pesan ini akan dihapus permanen!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: 'Ya, hapus!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('form-hapus-' + id).submit();
+                }
+            });
+        }
+    </script>
 @endsection

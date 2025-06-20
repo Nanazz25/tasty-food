@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('title', 'Detail Pesan')
+
 @section('content')
     <div class="container">
         <h2>Detail Pesan Kontak</h2>

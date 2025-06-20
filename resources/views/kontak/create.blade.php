@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('title', 'Create Kontak')
+
 @section('content')
     <div class="container">
         <h2>Kontak</h2>

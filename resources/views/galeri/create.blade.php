@@ -1,10 +1,12 @@
 @extends('layouts.admin')
 
+@section('title', 'Create Galeri')
+
 @section('content')
 <div class="container">
     <h2 class="mb-4">Tambah Gambar Galeri</h2>
 
-    <div class="card">
+    <div class="card mt-11">
         <div class="card-body">
             <form action="{{ route('galeri.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
