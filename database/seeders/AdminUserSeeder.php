@@ -32,9 +32,9 @@ class AdminUserSeeder extends Seeder
         ]);
 
         User::create([
-            'name' => 'Super Admin',
-            'email' => 'superadmin@mail.com',
-            'password' => Hash::make('superadmin00'),
+            'name' => 'Nanaz Super Admin',
+            'email' => 'mnazrielalamsyah25@gmail.com',
+            'password' => Hash::make('qwertyuiop'),
             'role_id' => $superadmin->id,
             'is_superadmin' => true,
         ]);
