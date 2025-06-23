@@ -8,6 +8,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\TentangController;
 use App\Http\Controllers\KontakController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\TentangController as FrontendTentang;
 use App\Http\Controllers\Frontend\BeritaController as FrontendBerita;
@@ -23,9 +24,8 @@ Route::get('/kontak', [FrontendKontak::class, 'index'])->name('frontend.kontak')
 
 // Authenticated users
 Route::middleware(['auth'])->prefix('admin')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->middleware(['verified'])->name('dashboard');
+    //Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['verified'])->name('dashboard');
 
     // Users CRUD
     Route::resource('users', UserController::class)->except(['show']);

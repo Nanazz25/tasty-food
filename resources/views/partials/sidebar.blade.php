@@ -1,8 +1,9 @@
 <aside class="left-sidebar">
     <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-            <a href="{{ route('dashboard') }}" class="text-nowrap logo-img">
-                <img src="{{ asset('assets/images/logos/logo.svg') }}" alt="Logo" />
+            <a href="{{ route('dashboard') }}" class="text-nowrap logo-img"
+                style="font-size: 30px; font-weight: bold; color: #333; text-decoration: none;">
+                Tasty <span style="color: #e74c3c;">Food</span>
             </a>
             <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
                 <i class="ti ti-x fs-6"></i>
@@ -51,12 +52,10 @@
                 @endif
 
                 {{-- Section: KONTEN WEBSITE --}}
-                @if (
-                    allowedRoles('akses_berita') ||
-                    allowedRoles('akses_galeri') ||
-                    allowedRoles('akses_tentang') ||
-                    allowedRoles('akses_kontak')
-                )
+                @if (allowedRoles('akses_berita') ||
+                        allowedRoles('akses_galeri') ||
+                        allowedRoles('akses_tentang') ||
+                        allowedRoles('akses_kontak'))
                     <li class="nav-small-cap">
                         <iconify-icon icon="solar:document-text-linear" class="nav-small-cap-icon fs-4"></iconify-icon>
                         <span class="hide-menu">Konten Website</span>
