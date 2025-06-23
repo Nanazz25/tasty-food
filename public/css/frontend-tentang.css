@@ -101,30 +101,186 @@
 }
 
 /* === RESPONSIVE === */
-@media (max-width: 768px) {
+@media (max-width: 1280px) {
     .container-tasty,
     .container-visi,
     .container-misi {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         align-items: center;
-    }
-
-    .container-tasty .images-horizontal,
-    .container-visi .images-horizontal {
-        flex-direction: column;
-    }
-
-    .container-tasty .images-horizontal img,
-    .container-visi .images-horizontal img,
-    .container-misi .image-wide img {
-        width: 100%;
-        max-width: 300px;
-        height: auto;
+        justify-content: center;
+        gap: 30px;
     }
 
     .container-tasty .text,
     .container-visi .text,
     .container-misi .text {
         max-width: 100%;
+        flex: 1;
+    }
+
+    .container-tasty .images-horizontal img {
+        width: 200px;
+        height: 280px;
+        object-fit: cover;
+    }
+    .container-visi .images-horizontal img {
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
+    }
+
+    .container-misi .image-wide img {
+        max-width: 300px;
+        height: auto;
     }
 }
+
+@media (max-width: 768px) {
+    .container-tasty,
+    .container-visi,
+    .container-misi {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 10vh 15px;
+        height: auto;
+    }
+
+    .container-tasty .text,
+    .container-visi .text,
+    .container-misi .text {
+        order: 1;
+        width: 100%;
+        padding: 0 15px;
+        text-align: center;
+    }
+
+    .container-tasty .images-horizontal,
+    .container-visi .images-horizontal,
+    .container-misi .image-wide {
+        order: 2;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    .container-tasty .images-horizontal img,
+    .container-visi .images-horizontal img {
+        width: 130px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .container-misi .image-wide img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .judul-section {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .isi,
+    .container-visi .text p,
+    .container-misi .text p {
+        font-size: 14px;
+        line-height: 1.7;
+        text-align: justify;
+    }
+}
+
+@media (max-width: 576px) {
+    .container-tasty .images-horizontal img,
+    .container-visi .images-horizontal img {
+        width: 120px;
+        height: 160px;
+    }
+
+    .container-misi .image-wide img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .judul-section {
+        font-size: 18px;
+    }
+
+    .isi,
+    .container-visi .text p,
+    .container-misi .text p {
+        font-size: 13px;
+    }
+}
+
+/* @media (max-width: 576px) {
+    .container-tasty,
+    .container-visi,
+    .container-misi {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        padding: 20px 15px;
+        gap: 25px;
+    }
+
+    .container-tasty .text,
+    .container-visi .text,
+    .container-misi .text {
+        max-width: 100%;
+        width: 100%;
+        padding: 0 10px;
+        text-align: center;
+    }
+
+    .container-tasty .images-horizontal,
+    .container-visi .images-horizontal {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .container-tasty .images-horizontal img,
+    .container-visi .images-horizontal img {
+        width: 140px;
+        height: auto;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .container-misi .image-wide {
+        width: 100%;
+        text-align: center;
+    }
+
+    .container-misi .image-wide img {
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        object-fit: cover;
+        margin: 0 auto;
+        border-radius: 8px;
+    }
+
+    .judul-section {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .isi,
+    .container-visi .text p,
+    .container-misi .text p {
+        font-size: 13px;
+        line-height: 1.6;
+        color: #000;
+        text-align: justify;
+    }
+} */

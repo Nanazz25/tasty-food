@@ -3,7 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Tasty Food</title>
+    <link rel="icon" href="{{ asset('aset/food.png') }}" type="image/png">
     <link rel="stylesheet" href="{{ asset('css/frontend-home.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -14,7 +16,14 @@
     <header class="home-header">
         <div class="navbar-home">
             <div class="logo">TASTY FOOD</div>
-            <nav class="menu">
+
+            <div class="burger-icon" onclick="toggleMenu(this)">
+                <span class="line1"></span>
+                <span class="line2"></span>
+                <span class="line3"></span>
+            </div>
+
+            <nav class="menu" id="navbar-menu">
                 <a href="/">HOME</a>
                 <a href="/tentang">TENTANG</a>
                 <a href="/berita">BERITA</a>
@@ -132,6 +141,23 @@
 
     {{-- === FOOTER === --}}
     @include('frontend.layouts.footer')
+
+    <script>
+        function toggleMenu(icon) {
+            const menu = document.getElementById("navbar-menu");
+            icon.classList.toggle("open");
+            menu.classList.toggle("menu-show");
+
+            document.body.classList.toggle("menu-open");
+
+            if (document.body.classList.contains("menu-open")) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+    </script>
+
 
 </body>
 

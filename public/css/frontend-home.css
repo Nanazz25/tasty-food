@@ -53,7 +53,7 @@ body {
 }
 
 .menu a::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 0%;
     height: 2px;
@@ -66,7 +66,6 @@ body {
 .menu a:hover::after {
     width: 100%;
 }
-
 
 .header-image {
     position: absolute;
@@ -137,7 +136,7 @@ body {
     transition: background-color 0.3s ease;
     border-radius: 4px;
     transform: scale(1.03);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .tentang-kami-section {
@@ -163,12 +162,12 @@ body {
 .card-dummy-section {
     padding: 80px 40px;
     background: url("../aset/Group 70.png") no-repeat center center;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
     position: relative;
-    height: 55.8vh;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -188,9 +187,11 @@ body {
 .card-dummy-container {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
     position: relative;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
     z-index: 1;
 }
 
@@ -293,7 +294,7 @@ body {
     flex: 1 1 50%;
     max-width: 50%;
     background: #fff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     overflow: hidden;
     display: flex;
@@ -330,7 +331,7 @@ body {
 
 .card-berita.persegi {
     background: #fff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     overflow: hidden;
     display: flex;
@@ -356,13 +357,11 @@ body {
     margin-top: auto;
 }
 
-
 /* Optional Hover Effect */
 .card-berita:hover {
     transform: translateY(-5px);
     transition: 0.3s ease;
 }
-
 
 /* === GALERI  === */
 .galeri-home {
@@ -421,7 +420,6 @@ body {
 .btn-lihat-semua:hover {
     background-color: #e60000;
 }
-
 
 /* === FOOTER === */
 .custom-footer {
@@ -558,4 +556,458 @@ body {
     padding: 15px 0;
     font-size: 12px;
     margin-top: 50px;
+}
+
+@media (max-width: 1280px) {
+    .home-header {
+        position: relative;
+        padding: 30px 40px 0;
+        background-color: #f0f0f0;
+        height: 45vh;
+        overflow-x: hidden;
+    }
+
+    .navbar-home {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin: 10px;
+    }
+
+    .menu a {
+        padding: 10px 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-content h2 {
+        font-size: 28px;
+    }
+
+    .hero-content p {
+        max-width: 70%;
+    }
+
+    .header-image {
+        position: absolute;
+        top: -18vh;
+        right: -22vh;
+        width: 500px;
+        overflow: hidden;
+        z-index: 0;
+    }
+
+    .card-dummy-container {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .card-dummy-section {
+        padding: 60px 20px;
+        width: 100%;
+        position: relative;
+        height: 45.8vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-size: cover;
+    }
+
+    .dummy-card {
+        border-radius: 20px;
+        width: 200px;
+        height: 170px;
+        padding: 97px 20px 35px;
+        font-size: 18px;
+    }
+
+    .card-berita.besar {
+        display: none;
+    }
+
+    .berita-kecil-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        max-width: 100%;
+    }
+
+    .card-berita.persegi {
+        height: auto;
+    }
+
+    .galeri-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-content p {
+        max-width: 60%;
+    }
+
+    .header-image {
+        display: none;
+    }
+
+    .hero-content h1 {
+        font-size: 28px;
+    }
+
+    .hero-content h2 {
+        font-size: 20px;
+    }
+
+    .btn-tentang {
+        width: 100%;
+    }
+
+    .card-dummy-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .card-dummy-container {
+        width: 100% !important;
+        max-width: unset !important;
+        justify-content: center !important;
+        margin: 0 auto !important;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .dummy-card {
+        width: 120px;
+        height: 100px;
+        padding: 60px 15px 15px;
+        font-size: 11px;
+        margin-top: 60px;
+    }
+
+    .dummy-card {
+        border-radius: 20px;
+        width: 135px;
+        height: 140px;
+        padding: 97px 20px 35px;
+        font-size: 14px;
+    }
+
+    .card-berita.besar {
+        display: none;
+    }
+
+    .berita-kecil-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        max-width: 100%;
+    }
+
+    .card-berita.persegi {
+        height: auto;
+    }
+
+    .galeri-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .custom-footer {
+        background-color: #111;
+        color: white;
+        padding: 20px 20px;
+        height: auto;
+    }
+
+    .social-icons {
+        justify-content: flex-start;
+    }
+}
+
+.burger-icon {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    z-index: 1100;
+    width: 30px;
+    height: 22px;
+}
+
+.burger-icon span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #000;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+.burger-icon.open .line1 {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.burger-icon.open .line2 {
+    opacity: 0;
+}
+
+.burger-icon.open .line3 {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+@media (max-width: 600px) {
+    .burger-icon {
+        display: block;
+    }
+
+    .home-header {
+        padding: 30px 20px 0;
+        height: auto;
+    }
+
+    .navbar-home {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin: 10px 0;
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .burger-icon {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .menu {
+        display: none;
+        position: absolute;
+        top: 40px;
+        right: 20px;
+        background-color: #3b3b3b;
+        flex-direction: column;
+        gap: 10px;
+        width: 220px;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+        animation: fadeSlideIn 0.3s ease forwards;
+    }
+
+    .menu a:hover {
+        color: #ff0000;
+        transform: none !important;
+    }
+
+    .menu-show {
+        display: flex !important;
+    }
+
+    .menu a {
+        padding: 10px 0;
+        font-size: 14px;
+        border-bottom: 1px solid #eee;
+        color: #fff;
+    }
+
+    .header-image {
+        display: none;
+    }
+
+    .hero-content-wrapper {
+        padding: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 24px;
+        text-align: left;
+    }
+
+    .hero-content h2 {
+        font-size: 18px;
+        font-weight: 500;
+        text-align: left;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+        max-width: 100%;
+        text-align: justify;
+    }
+
+    .btn-tentang {
+        width: 100%;
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 4px;
+    }
+
+    /* === TENTANG KAMI === */
+    .tentang-kami-section {
+        padding: 40px 20px;
+    }
+
+    .tentang-kami-section p {
+        font-size: 14px;
+        text-align: justify;
+    }
+
+    /* === DUMMY CARD SECTION === */
+    .card-dummy-section {
+        padding: 60px 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+    }
+
+    .card-dummy-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 60px 20px;
+        padding: 20px 20px;
+    }
+
+    .dummy-card {
+        width: 100%;
+        max-width: 160px;
+        margin: 0 auto;
+        padding: 60px 10px 15px;
+        font-size: 12px;
+        box-sizing: border-box;
+        height: auto;
+        min-height: 200px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+    }
+
+    .dummy-card img {
+        width: 100px;
+        height: 100px;
+        top: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+        position: absolute;
+    }
+
+    /* === BERITA SECTION === */
+    .section-title {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .card-berita.besar {
+        display: none;
+    }
+
+    .berita-kecil-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        max-width: 100%;
+    }
+
+    .card-berita.persegi {
+        height: auto;
+    }
+
+    .card-berita.persegi .isi-card {
+        padding: 10px;
+    }
+
+    .ringkasan-card {
+        font-size: 14px;
+    }
+
+    /* === GALERI SECTION === */
+    .galeri-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    .galeri-item {
+        aspect-ratio: 1 / 1;
+    }
+
+    .btn-lihat-semua {
+        width: 100%;
+        padding: 10px 0;
+        font-size: 14px;
+    }
+
+    /* === FOOTER === */
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        gap: 20px;
+    }
+
+    .custom-footer {
+        background-color: #111;
+        color: white;
+        padding: 20px;
+        height: auto;
+    }
+
+    .footer-section h2,
+    .footer-section h3 {
+        font-size: 16px;
+    }
+
+    .footer-section ul li a {
+        font-size: 14px;
+    }
+
+    .footer-kontak li {
+        font-size: 14px;
+        gap: 8px;
+    }
+
+    .social-icons {
+        justify-content: flex-start;
+        gap: 12px;
+    }
+
+    .social-icons .icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .footer-bottom {
+        font-size: 10px;
+        margin-top: 30px;
+        padding: 10px 0;
+    }
+}
+
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

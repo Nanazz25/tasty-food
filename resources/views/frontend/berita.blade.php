@@ -37,7 +37,7 @@
                             <div class="bawah-card">
                                 <a href="{{ route('berita.show', $berita->id) }}" class="link-selengkapnya">Baca
                                     selengkapnya</a>
-                                <span class="titik-tiga"></span>
+                                <span class="titik-tiga">...</span>
                             </div>
                         </div>
                     </div>

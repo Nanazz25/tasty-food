@@ -32,6 +32,16 @@ img {
     align-items: center;
     padding: 90px;
     color: white;
+    position: relative;
+    z-index: 1001;
+}
+
+.menu-desktop {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .navbar ul {
@@ -56,7 +66,7 @@ img {
 }
 
 .navbar a::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 0%;
     height: 2px;
@@ -106,7 +116,6 @@ img {
 .footer-section.brand {
     margin-right: 80px;
 }
-
 
 .footer-section {
     flex: 1 1 200px;
@@ -222,4 +231,233 @@ img {
     padding: 15px 0;
     font-size: 12px;
     margin-top: 50px;
+}
+
+/* === RESPONSIVE === */
+
+@media (max-width: 1280px) {
+    .navbar ul {
+        margin: 0 0 0 10px;
+    }
+
+    .judul-hero {
+        font-size: 48px;
+        left: 60px;
+        top: 22%;
+    }
+
+    .footer-container {
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px;
+    }
+}
+.burger-icon {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 21px;
+    cursor: pointer;
+}
+
+.burger-icon span {
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+    width: 100%;
+}
+
+.burger-icon.open .line1 {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.burger-icon.open .line2 {
+    opacity: 0;
+}
+
+.burger-icon.open .line3 {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+#navbar-menu.menu-popup {
+    position: absolute;
+    top: 90px;
+    left: 20px;
+    right: 20px;
+    background-color: #111;
+    z-index: 999;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(-20px) scale(0.98);
+    transition: all 0.4s ease;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+#navbar-menu.menu-popup.show {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+body.menu-open::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 998;
+}
+
+@media (max-width: 768px) {
+    header {
+        height: auto;
+    }
+
+    .menu-desktop {
+        display: none;
+    }
+
+    .burger-icon {
+        display: flex;
+    }
+
+    .navbar {
+        position: relative;
+        top: 30px;
+    }
+
+    .navbar ul {
+        display: none;
+    }
+
+    #navbar-menu.menu-popup.show {
+        display: flex;
+    }
+
+    .navbar ul li {
+        width: 100%;
+        text-align: left;
+        padding: 10px 20px;
+    }
+
+    .navbar ul li a {
+        width: 100%;
+        display: inline-block;
+    }
+
+    .navbar a:hover {
+        transform: none !important;
+        color: #ff0000;
+    }
+
+    .hero-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .judul-hero {
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .footer-section {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    .footer-section.brand {
+        margin-right: 0;
+    }
+
+    .footer-bottom {
+        font-size: 11px;
+    }
+
+    .social-icons .icon {
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+    }
+
+    .footer-section h3,
+    .footer-section h2 {
+        font-size: 16px;
+    }
+
+    .footer-section ul li a {
+        font-size: 15px;
+    }
+
+    .footer-kontak li {
+        font-size: 15px;
+    }
+
+    .custom-footer {
+        height: auto;
+    }
+}
+
+/* HP kecil */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 15px;
+    }
+
+    .navbar ul {
+        gap: 10px;
+    }
+
+    .judul-hero {
+        font-size: 40px;
+        top: 40%;
+        left: 10%;
+    }
+
+    .footer-container {
+        gap: 15px;
+    }
+
+    .footer-kontak li {
+        font-size: 14px;
+    }
+
+    .footer-section ul li a {
+        font-size: 14px;
+    }
+
+    .social-icons {
+        gap: 10px;
+    }
+
+    .social-icons .icon {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+    }
+
+    .custom-footer {
+        height: auto;
+    }
+
+    .footer-bottom {
+        font-size: 10px;
+    }
 }
